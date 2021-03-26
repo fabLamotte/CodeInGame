@@ -22,20 +22,21 @@ for($i = 0; $i < count($tab); $i++){
 
         // Boucles sur les cellules de la ligne
         foreach($positionsX as $posX){
-                $cellule_courrante = "";
-                $cellule_droite = "";
-                $cellule_basse = "";
-                $cellule_basse_exist = false;
-            // Position de la cellule
-                $cellule_courrante = $posX . ' ' . $i;
-                $position_x_suivante = next($positionsX);
+            $cellule_courrante = "";
+            $cellule_droite = "";
+            $cellule_basse = "";
+            $cellule_basse_exist = false;
+
+            // Position de la cellule courrante
+            $cellule_courrante = $posX . ' ' . $i;
+            $position_x_suivante = next($positionsX);
 
             // Position voisin de droite 
-                if($position_x_suivante != null){
-                    $cellule_droite = $position_x_suivante . ' ' . $i; // Position voisin de droite
-                } else {
-                    $cellule_droite = '-1 -1';  // Voisin de droite n'existe pas
-                }
+            if($position_x_suivante != null){
+                $cellule_droite = $position_x_suivante . ' ' . $i; // Position voisin de droite
+            } else {
+                $cellule_droite = '-1 -1';  // Voisin de droite n'existe pas
+            }
 
 
             // On boucle à nouveau sur les lignes suivantes pour le voisin du dessous
@@ -47,8 +48,6 @@ for($i = 0; $i < count($tab); $i++){
                     $cellule_basse_exist = true; 
                     $cellule_basse = $posX . ' ' . $a; // Position du voisin du dessous
                     break;
-                } else {
-                    continue;
                 }
             }
 
